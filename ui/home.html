@@ -19,7 +19,7 @@
                  <i class="fa fa-caret-down"></i>
                  </button>
                  <div class="dropdown-content">
-                   <a href="user-profile.html">Create Group</a>
+                   <a id="myBtn">Create Group</a>
                    <a href="sign-in.html">View Groups</a>
                  </div>
               </div>
@@ -35,6 +35,20 @@
            </div>
         </div>
      </header>
+
+     <div id="myModal" class="modal">
+       <!-- Modal content -->
+        <div class="modal-content">
+          <span class="close">&times;</span>
+          <div class="form_ask_question">
+            <form class="register-form">
+              <input type="text" placeholder="Name" />
+              <input type="text" placeholder="Add members" />
+              <button>Create Group</button>
+            </form>
+          </div>
+        </div>
+      </div>
      <main>
      <h1 class="header-one">Mails</h1>
      <div class="container2">
@@ -110,29 +124,11 @@
         <a href="newMessage.html"><button class="button-compose-email" type="button"><img src="img/add.png" class="plus-icon" alt="image" /> COMPOSE</button></a>
       </div>
      </div>
-
-
-     <div id="myModal" class="modal">
-              <!-- Modal content -->
-              <div class="modal-content">
-                <span class="close">&times;</span>
-                <div class="form_ask_question">
-                  <form class="register-form">
-                    <input type="file" name="pic" accept="image/*">
-                    <input type="text" placeholder="Title" />
-                    <textarea placeholder="asfdsdfasd" name="Description" rows="8" cols="37">
-
-                      </textarea>
-                    <input type="text" placeholder="Tags" />
-                    <button>Ask</button>
-                  </form>
-                </div>
-              </div>
-            </div>
      </main>
      <br>
      <div class="footer">
        <p>EPIC Email &copy; 2019</p>
      </div>
+    <script src="js/script.js"></script>
   </body>
 </html>
