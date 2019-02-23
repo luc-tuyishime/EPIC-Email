@@ -367,6 +367,21 @@ textarea{
    margin: auto;
  }
 
+ .list-group{
+   padding-top: 120px;
+   max-width: 850px;
+   margin: auto;
+ }
+
+ .right-members{
+   float: right;
+   color: #4caf50;
+ }
+
+ .group-text-center{
+   text-align: center;
+ }
+
 .form-new-message{
   max-width: 500px;
   margin: auto;
@@ -498,6 +513,19 @@ textarea {
   color: #fff;
   font-size: 14px;
   cursor: pointer;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+ul li {
+  border: 1px solid #ddd;
+  margin-top: -1px; /* Prevent double borders */
+  background-color: #f6f6f6;
+  padding: 12px;
 }
 
 
