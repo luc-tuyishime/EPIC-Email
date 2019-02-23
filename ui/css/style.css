@@ -259,6 +259,23 @@ header.topbar {
   outline: none;
 }
 
+.delete-mail{
+  background-color: #c62828;
+  border: 1px solid  #c62828;
+  border-radius: 5px;
+  padding: 12px 12px;
+  font-size: 14px;
+  color: #fff;
+  /* float: right; */
+  cursor: pointer;
+  outline: none;
+}
+
+.draft-text{
+  color: #e57373;
+  font-size: 20px;
+}
+
  .container2{
   width: 96% !important;
   margin: 20px auto !important;
@@ -322,6 +339,10 @@ header.topbar {
   border: 1px solid #e3f2fd;
 }
 
+textarea{
+  ;
+}
+
 .input-field:focus {
   border: 2px solid dodgerblue;
 }
@@ -340,6 +361,12 @@ header.topbar {
   color: black;
 }
 
+ .form-draft{
+   padding-top: 120px;
+   max-width: 500px;
+   margin: auto;
+ }
+
 .form-new-message{
   max-width: 500px;
   margin: auto;
@@ -351,7 +378,7 @@ header.topbar {
 
 textarea {
   resize: none;
-  float: left;
+  text-align: left;
 }
 
 .container3{
