@@ -5,6 +5,8 @@
   "main": "server.js",
   "scripts": {
     "start": "nodemon --exec babel-node --presets @babel/preset-env  src/server.js",
+    "test": "nyc --reporter=html --reporter-text mocha --require babel-register --timeout 10000 --exit",
+    "coverage": "nyc report --reporter=text-lcov | coveralls",
     "build": "babel src -d ./build",
     "run_build": "node build/server.js"
   },
@@ -22,6 +24,7 @@
     "@babel/core": "^7.1.6",
     "@babel/node": "^7.0.0",
     "@babel/preset-env": "^7.1.6",
+    "babel-register": "^6.26.0",
     "eslint": "^5.4.0",
     "eslint-config-airbnb": "^16.1.0",
     "eslint-plugin-import": "^2.14.0",
