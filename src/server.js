@@ -4,7 +4,7 @@ import { hello } from './hello/hello';
 const app = express();
 
 app.get('/', (req, res, next) => {
-  res.send('Pure JS Version');
+  res.send('EPIC Email...');
 });
 
 hello();
