@@ -19,7 +19,7 @@
                  <i class="fa fa-caret-down"></i>
                  </button>
                  <div class="dropdown-content">
-                   <a href="user-profile.html">Create Group</a>
+                   <a id="myBtn">Create Group</a>
                    <a href="view-groups.html">View Groups</a>
                  </div>
               </div>
@@ -28,7 +28,7 @@
                  <i class="fa fa-caret-down"></i>
                  </button>
                  <div class="dropdown-content">
-                   <a href="user-profile.html">Profile</a>
+                   <a href="profile.html">Profile</a>
                    <a href="index.html">Logout</a>
                  </div>
               </div>
@@ -46,10 +46,24 @@
           <li>Developer <span class="right-members">87 Members</span></li>
           <li>Party-2012 <span class="right-members">140 Members</span></li>
         </ul>
+        <div id="myModal" class="modal">
+          <!-- Modal content -->
+           <div class="modal-content">
+             <span class="close">&times;</span>
+             <div class="form_ask_question">
+               <form class="register-form">
+                 <input type="text" placeholder="Name" />
+                 <input type="text" placeholder="Add members" />
+                 <button>Create Group</button>
+               </form>
+             </div>
+           </div>
+         </div>
      </main>
      <br>
      <div class="footer2">
        <p>EPIC Email &copy; 2019</p>
      </div>
+    <script src="js/script.js"></script>
   </body>
 </html>
