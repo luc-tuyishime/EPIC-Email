@@ -10,7 +10,7 @@ body{
   height: 600px;
   border-radius: 12px;
   z-index: -1;
-  background: url(../img/mail.jpg);
+  background: url(../img/mail.jpeg);
   background-position: center;
   background-repeat: no-repeat;
   position: absolute;
@@ -22,7 +22,7 @@ body{
 }
 
 .div-form{
-  padding-top: 140px;
+  padding-top: 70px;
 }
 
 .container h1{
@@ -38,6 +38,7 @@ body{
   width: 260px;
   height: 40px;
   background: #fafafa;
+  color: black;
   border-radius: 10px;
   margin: 10px auto;
 }
@@ -51,7 +52,7 @@ body{
   line-height: 37px;
   font-family: "Montserrat", sans-serif;
   font-size: 14px;
-  color: #fff;
+  color: black;
 }
 
 .btn{
@@ -105,13 +106,19 @@ hr.style-one {
 .b1{
   display: block;
   font-size: 16px;
-  margin-top: 90px;
+  /* margin-top: 90px; */
   /* padding: 80px 0; */
   text-decoration: center;
   color: #fff;
   font-weight: bold;
   transition: 0.4s all;
   text-decoration: none;
+}
+
+.text-p{
+  font-size: 23px;
+  font-weight: bold;
+  padding-top: 30px;
 }
 
 .b2{
@@ -494,6 +501,7 @@ textarea {
   font-family: "Roboto", sans-serif;
   outline: 1;
   background: #f2f2f2;
+  color: black;
   width: 100%;
   border: 0;
   margin: 0 0 15px;
