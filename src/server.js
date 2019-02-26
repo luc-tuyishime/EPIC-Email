@@ -1,3 +1,4 @@
+import 'idempotent-babel-polyfill';
 import express from 'express';
 import { hello } from './hello/hello';
 

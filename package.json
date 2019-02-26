@@ -11,7 +11,7 @@
     "run_build": "node build/server.js"
   },
   "engines": {
-   "node": "8.9.4"
+    "node": "8.9.4"
   },
   "author": "",
   "license": "ISC",
@@ -21,6 +21,7 @@
     "chai-http": "^4.2.1",
     "coveralls": "^3.0.3",
     "express": "^4.16.4",
+    "idempotent-babel-polyfill": "^7.0.0",
     "nyc": "^13.3.0"
   },
   "devDependencies": {
