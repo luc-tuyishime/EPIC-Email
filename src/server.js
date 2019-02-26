@@ -1,4 +1,3 @@
-import 'idempotent-babel-polyfill';
 import express from 'express';
 import { hello } from './hello/hello';
 
@@ -11,3 +10,5 @@ app.get('/', (req, res, next) => {
 hello();
 
 app.listen(process.env.PORT || 3000, () => console.log('Server started...'));
+
+export default app;
