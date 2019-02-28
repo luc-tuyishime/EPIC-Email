@@ -29,6 +29,16 @@ const messages = [
     receiverId: 8,
     parentMessageId: 9,
     status: 'draft'
+  },
+  {
+    id: 4,
+    createdOn: '12/01/2018',
+    subject: 'andela fellowship',
+    message: 'we here for the fellowship',
+    senderId: 12,
+    receiverId: 9,
+    parentMessageId: 8,
+    status: 'sent'
   }
 ];
 

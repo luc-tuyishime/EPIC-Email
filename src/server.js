@@ -1,10 +1,7 @@
 import express from 'express';
 import { hello } from './hello/hello';
-// import contacts from './data/contacts.json';
-import { apiGetMessages } from './controllers/messages/apiGetMessages';
+import { apiGetMessages, apiGetUnreadMessages } from './controllers/messages/apiGetMessages';
 import { apiGetMessagesDetail } from './controllers/messages/apiGetMessageDetail';
-
-// console.log(contacts);
 
 const app = express();
 
@@ -14,12 +11,13 @@ app.get('/', (req, res, next) => {
 
 app.get('/api/v1/messages', apiGetMessages);
 
+app.get('/api/v1/messages/unread', apiGetUnreadMessages);
+
 app.get('/api/v1/messages/:id', apiGetMessagesDetail);
 
 app.post('/api/v1/contacts', (req, res, next) => {
   res.send('here we post');
 });
-
 
 app.use((req, res, next) => {
   const error = new Error('route not found');

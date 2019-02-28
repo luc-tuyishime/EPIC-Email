@@ -11,6 +11,6 @@ export const apiGetMessagesDetail = (req, res, next) => {
   }
   return res.status(404).send({
     status: 404,
-    error: `The meetup with the id ${messageId} was not found`
+    error: `The message with the id ${messageId} was not found`
   });
 };
