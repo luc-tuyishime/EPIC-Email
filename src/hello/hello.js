@@ -1,3 +1,3 @@
 export const hello = () => {
-  console.log('Hello World we are here!!!!!');
+  console.log('Hello, the application is running...');
 };
