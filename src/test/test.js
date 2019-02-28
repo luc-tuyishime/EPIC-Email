@@ -9,7 +9,7 @@ chai.use(chaiHttp);
 chai.should();
 
 describe('/get all messages', () => {
-  it('Should be able to get all the messages', (done) => {
+  it('Should be able to get all the messages..', (done) => {
     chai.request(server)
       .get('/api/v1/messages').end((err, res) => {
         console.log(res.body);
@@ -21,7 +21,7 @@ describe('/get all messages', () => {
 });
 
 describe('/get all unread messages', () => {
-  it('Should be able to get all unread messages', (done) => {
+  it('Should be able to get all unread messages..', (done) => {
     chai.request(server)
       .get('/api/v1/messages/unread').end((err, res) => {
         console.log(res.body);
@@ -31,7 +31,7 @@ describe('/get all unread messages', () => {
       });
   });
 
-  it('Should not be able to get all unread messages', (done) => {
+  it('Should not be able to get all unread messages..', (done) => {
     chai.request(server)
       .get('/api/v1/messages/unreadfsfs').end((err, res) => {
         console.log(res.body);
