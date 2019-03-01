@@ -66,7 +66,7 @@ describe('/get a specific message', () => {
 });
 
 
-describe('create a meetup', () => {
+describe('create a message', () => {
   it('Should be able to create a message', (done) => {
     const message = {
       createdOn: 'March 01 2019',
@@ -104,4 +104,28 @@ describe('create a meetup', () => {
   //       done();
   //     });
   // });
+});
+
+describe('/Delete a message', () => {
+  it('should be able to delete a message', (done) => {
+    chai.request(server)
+      .delete('/api/v1/messages/1')
+      .end((err, res) => {
+        console.log(res.body);
+        res.body.should.be.a('object');
+        res.body.should.have.property('status').eql(200);
+        done();
+      });
+  });
+
+  it('should not be able to delete a message', (done) => {
+    chai.request(server)
+      .delete('/api/v1/messages/324324')
+      .end((err, res) => {
+        console.log(res.body);
+        res.body.should.be.a('object');
+        res.body.should.have.property('status').eql(404);
+        done();
+      });
+  });
 });

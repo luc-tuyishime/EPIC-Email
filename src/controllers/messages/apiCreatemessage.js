@@ -1,10 +1,9 @@
 import moment from 'moment';
-import uuid from 'uuid';
 import messages from '../../model/messages';
 
 export const apiCreateMessage = (req, res, next) => {
   const newMessage = {
-    id: uuid(),
+    id: parseInt(messages.length + 1, 10),
     createdOn: moment().format('LL'),
     subject: req.body.subject || '',
     message: req.body.message || '',

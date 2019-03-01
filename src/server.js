@@ -4,6 +4,7 @@ import { log } from './middleware/logger';
 import { apiGetMessages, apiGetUnreadMessages } from './controllers/messages/apiGetMessages';
 import { apiCreateMessage } from './controllers/messages/apiCreatemessage';
 import { apiGetMessagesDetail } from './controllers/messages/apiGetMessageDetail';
+import { apiDeleteMessage } from './controllers/messages/apiDeleteMessage';
 
 const app = express();
 
@@ -21,9 +22,7 @@ app.get('/api/v1/messages/:id', apiGetMessagesDetail);
 
 app.post('/api/v1/messages', jsonParser, apiCreateMessage);
 
-app.post('/api/v1/contacts', (req, res, next) => {
-  res.send('here we post');
-});
+app.delete('/api/v1/messages/:id', apiDeleteMessage);
 
 app.use((req, res, next) => {
   const error = new Error('route not found');
