@@ -22,12 +22,15 @@
     "@babel/preset-env": "^7.3.4",
     "@babel/register": "^7.0.0",
     "babel-polyfill": "^6.26.0",
+    "body-parser": "^1.18.3",
     "chai": "^4.2.0",
     "chai-http": "^4.2.1",
     "coveralls": "^3.0.3",
     "express": "^4.16.4",
     "idempotent-babel-polyfill": "^7.0.0",
-    "nyc": "^13.3.0"
+    "moment": "^2.24.0",
+    "nyc": "^13.3.0",
+    "uuid": "^3.3.2"
   },
   "devDependencies": {
     "eslint": "^5.4.0",

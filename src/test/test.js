@@ -64,3 +64,44 @@ describe('/get a specific message', () => {
       });
   });
 });
+
+
+describe('create a meetup', () => {
+  it('Should be able to create a message', (done) => {
+    const message = {
+      createdOn: 'March 01 2019',
+      subject: 'andela application',
+      message: 'here is the application for playing',
+      parentMessageId: 0,
+      status: 'sent'
+    };
+    chai.request(server)
+      .post('/api/v1/messages')
+      .send(message)
+      .end((err, res) => {
+        console.log(res.body);
+        res.body.should.be.a('object');
+        res.body.should.have.property('status').eql(201);
+        done();
+      });
+  });
+
+  // it('Should not be able to create a message', (done) => {
+  //   const message = {
+  //     createdOn: 'March 01 2019',
+  //     subject: '',
+  //     message: 'here is the application for playing',
+  //     parentMessageId: 0,
+  //     status: 'sent'
+  //   };
+  //   chai.request(server)
+  //     .post('/api/v1/messages')
+  //     .send(message)
+  //     .end((err, res) => {
+  //       console.log(res.body);
+  //       res.body.should.be.a('object');
+  //       res.body.should.have.property('status').eql(400);
+  //       done();
+  //     });
+  // });
+});
