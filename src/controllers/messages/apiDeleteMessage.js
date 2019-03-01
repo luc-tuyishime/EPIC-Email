@@ -3,7 +3,7 @@ import messages from '../../model/messages';
 export const apiDeleteMessage = (req, res, next) => {
   const messageId = req.params.id;
   const messageIndex = messages.findIndex(message => message.id === parseInt(messageId, 10));
-  if (messageIndex > -1) {
+  if (messageIndex > 0) {
     messages.splice(messageIndex);
     return res.status(200).send({
       status: 200,
