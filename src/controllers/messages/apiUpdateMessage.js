@@ -23,6 +23,6 @@ export const apiUpdateMessage = (req, res, next) => {
 
   return res.status(404).send({
     status: 404,
-    message: `The message with the id ${messageId} was not found.`
+    message: `The message with the id ${messageId} was not found..`
   });
 };
