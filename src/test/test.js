@@ -106,6 +106,45 @@ describe('create a message', () => {
   // });
 });
 
+
+// test create
+describe('update a message', () => {
+  it('Should be able to update a message', (done) => {
+    const message = {
+      subject: 'andela application'
+    };
+    chai.request(server)
+      .patch('/api/v1/messages/5')
+      .send(message)
+      .end((err, res) => {
+        console.log(res.body);
+        res.body.should.be.a('object');
+        res.body.should.have.property('status').eql(200);
+        done();
+      });
+  });
+
+  // it('Should not be able to update a message', (done) => {
+  //   const message = {
+  //     createdOn: '17/01/19',
+  //     location: '',
+  //     topic: 'we here',
+  //     happeningOn: '03/01/19',
+  //     tags: 'java rubi'
+  //   };
+  //   chai.request(server)
+  //     .patch('/api/v1/messages/1')
+  //     .send(message)
+  //     .end((err, res) => {
+  //       console.log(res.body);
+  //       res.body.should.be.a('object');
+  //       res.body.should.have.property('status').eql(400);
+  //       done();
+  //     });
+  // });
+});
+
+
 describe('/Delete a message', () => {
   it('should be able to delete a message', (done) => {
     chai.request(server)

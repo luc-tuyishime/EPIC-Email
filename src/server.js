@@ -5,6 +5,7 @@ import { apiGetMessages, apiGetUnreadMessages } from './controllers/messages/api
 import { apiCreateMessage } from './controllers/messages/apiCreatemessage';
 import { apiGetMessagesDetail } from './controllers/messages/apiGetMessageDetail';
 import { apiDeleteMessage } from './controllers/messages/apiDeleteMessage';
+import { apiUpdateMessage } from './controllers/messages/apiUpdateMessage';
 
 const app = express();
 
@@ -23,6 +24,8 @@ app.get('/api/v1/messages/:id', apiGetMessagesDetail);
 app.post('/api/v1/messages', jsonParser, apiCreateMessage);
 
 app.delete('/api/v1/messages/:id', apiDeleteMessage);
+
+app.patch('/api/v1/messages/:id', jsonParser, apiUpdateMessage);
 
 app.use((req, res, next) => {
   const error = new Error('route not found');
