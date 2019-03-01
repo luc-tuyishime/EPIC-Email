@@ -5,18 +5,19 @@ export const apiUpdateMessage = (req, res, next) => {
   const messageId = req.params.id;
   const messageIndex = messages.findIndex(message => message.id === parseInt(messageId, 10));
   if (messageIndex > -1) {
+    const originalMessage = messages[messageIndex];
     const newMessage = {
       id: messageId,
       createdOn: moment().format('LL'),
-      subject: req.body.subject || '',
-      message: req.body.message || '',
-      parentMessageId: req.body.parentMessageId || 0,
-      status: req.body.status || ''
+      subject: req.body.subject || originalMessage.subject,
+      message: req.body.message || originalMessage.message,
+      parentMessageId: req.body.parentMessageId || originalMessage.parentMessageId,
+      status: req.body.status || originalMessage.status
     };
     messages[messageIndex] = newMessage;
     return res.status(200).send({
       status: 200,
-      message: 'The message has been updated'
+      data: [newMessage]
     });
   }
 
