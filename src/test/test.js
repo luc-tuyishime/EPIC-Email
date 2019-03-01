@@ -109,7 +109,7 @@ describe('create a message', () => {
 
 // test create
 describe('update a message', () => {
-  it('Should be able to update a message..', (done) => {
+  it('Should be able to update a message', (done) => {
     const message = {
       subject: 'andela application'
     };
