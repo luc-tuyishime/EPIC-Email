@@ -8,6 +8,30 @@ chai.use(chaiHttp);
 
 chai.should();
 
+describe('/Delete a message', () => {
+  it('should be able to delete a message', (done) => {
+    chai.request(server)
+      .delete('/api/v1/messages/2')
+      .end((err, res) => {
+        console.log(res.body);
+        res.body.should.be.a('object');
+        res.body.should.have.property('status').eql(200);
+        done();
+      });
+  });
+
+  it('should not be able to delete a message', (done) => {
+    chai.request(server)
+      .delete('/api/v1/messages/324324')
+      .end((err, res) => {
+        console.log(res.body);
+        res.body.should.be.a('object');
+        res.body.should.have.property('status').eql(404);
+        done();
+      });
+  });
+});
+
 describe('/get all messages', () => {
   it('Should be able to get all the messages..', (done) => {
     chai.request(server)
@@ -114,7 +138,7 @@ describe('update a message', () => {
       subject: 'andela application'
     };
     chai.request(server)
-      .patch('/api/v1/messages/5')
+      .patch('/api/v1/messages/2')
       .send(message)
       .end((err, res) => {
         console.log(res.body);
@@ -142,29 +166,4 @@ describe('update a message', () => {
   //       done();
   //     });
   // });
-});
-
-
-describe('/Delete a message', () => {
-  it('should be able to delete a message', (done) => {
-    chai.request(server)
-      .delete('/api/v1/messages/1')
-      .end((err, res) => {
-        console.log(res.body);
-        res.body.should.be.a('object');
-        res.body.should.have.property('status').eql(200);
-        done();
-      });
-  });
-
-  it('should not be able to delete a message', (done) => {
-    chai.request(server)
-      .delete('/api/v1/messages/324324')
-      .end((err, res) => {
-        console.log(res.body);
-        res.body.should.be.a('object');
-        res.body.should.have.property('status').eql(404);
-        done();
-      });
-  });
 });
