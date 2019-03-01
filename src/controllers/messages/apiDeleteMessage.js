@@ -5,9 +5,9 @@ export const apiDeleteMessage = (req, res, next) => {
   const messageIndex = messages.findIndex(message => message.id === parseInt(messageId, 10));
   if (messageIndex > -1) {
     messages.splice(messageIndex);
-    return res.send({
+    return res.status(200).send({
       status: 200,
-      message: 'Message removed'
+      data: [{ message: 'Message removed' }]
     });
   }
 

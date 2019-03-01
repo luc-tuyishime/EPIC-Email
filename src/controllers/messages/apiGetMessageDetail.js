@@ -4,7 +4,7 @@ export const apiGetMessagesDetail = (req, res, next) => {
   const messageId = req.params.id;
   const selectedMessage = messages.find(message => message.id === parseInt(messageId, 10));
   if (selectedMessage) {
-    return res.send({
+    return res.status(200).send({
       status: 200,
       data: [selectedMessage]
     });
