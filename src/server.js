@@ -1,5 +1,5 @@
 import express from 'express';
-import { hello } from './hello/hello';
+import { log } from './middleware/logger';
 import { apiGetMessages, apiGetUnreadMessages } from './controllers/messages/apiGetMessages';
 import { apiGetMessagesDetail } from './controllers/messages/apiGetMessageDetail';
 
@@ -33,7 +33,7 @@ app.use((error, req, res, next) => {
   });
 });
 
-hello();
+log();
 
 app.listen(process.env.PORT || 3000, () => console.log('Server started...'));
 

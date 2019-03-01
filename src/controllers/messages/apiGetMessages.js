@@ -1,4 +1,4 @@
-import messages from '../../data/messages';
+import messages from '../../model/messages';
 
 export const apiGetMessages = (req, res, next) => {
   res.send({

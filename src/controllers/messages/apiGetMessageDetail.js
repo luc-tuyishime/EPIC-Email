@@ -1,4 +1,4 @@
-import messages from '../../data/messages';
+import messages from '../../model/messages';
 
 export const apiGetMessagesDetail = (req, res, next) => {
   const messageId = req.params.id;
