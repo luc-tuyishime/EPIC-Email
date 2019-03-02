@@ -17,8 +17,8 @@ export const apiUpdateMessage = (req, res, next) => {
       status: req.body.status || originalMessage.status
     };
     messages[messageIndex] = newMessage;
-    return res.status(200).send({
-      status: 200,
+    return res.status(201).send({
+      status: 201,
       data: [newMessage]
     });
   }
