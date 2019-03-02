@@ -11,7 +11,7 @@ chai.should();
 describe('/Delete a message', () => {
   it('should be able to delete a message', (done) => {
     chai.request(server)
-      .delete('/api/v1/messages/2')
+      .delete('/api/v1/messages/4')
       .end((err, res) => {
         console.log(res.body);
         res.body.should.be.a('object');
@@ -93,10 +93,8 @@ describe('/get a specific message', () => {
 describe('create a message', () => {
   it('Should be able to create a message', (done) => {
     const message = {
-      createdOn: 'March 01 2019',
-      subject: 'andela application',
+      subject: 'dsfdsafjlsf lskdjfsadf',
       message: 'here is the application for playing',
-      parentMessageId: 0,
       status: 'sent'
     };
     chai.request(server)
@@ -135,10 +133,12 @@ describe('create a message', () => {
 describe('update a message', () => {
   it('Should be able to update a message', (done) => {
     const message = {
-      subject: 'andela application'
+      subject: 'dsfdsafjlsf lskdjfsadf',
+      message: 'here is the application for playing',
+      status: 'sent'
     };
     chai.request(server)
-      .patch('/api/v1/messages/2')
+      .patch('/api/v1/messages/4')
       .send(message)
       .end((err, res) => {
         console.log(res.body);
@@ -148,22 +148,20 @@ describe('update a message', () => {
       });
   });
 
-  // it('Should not be able to update a message', (done) => {
-  //   const message = {
-  //     createdOn: '17/01/19',
-  //     location: '',
-  //     topic: 'we here',
-  //     happeningOn: '03/01/19',
-  //     tags: 'java rubi'
-  //   };
-  //   chai.request(server)
-  //     .patch('/api/v1/messages/1')
-  //     .send(message)
-  //     .end((err, res) => {
-  //       console.log(res.body);
-  //       res.body.should.be.a('object');
-  //       res.body.should.have.property('status').eql(400);
-  //       done();
-  //     });
-  // });
+  it('Should not be able to update a message', (done) => {
+    const message = {
+      subject: '',
+      message: 'here is the application for playing',
+      status: 'sent'
+    };
+    chai.request(server)
+      .patch('/api/v1/messages/4')
+      .send(message)
+      .end((err, res) => {
+        console.log(res.body);
+        res.body.should.be.a('object');
+        res.body.should.have.property('status').eql(400);
+        done();
+      });
+  });
 });

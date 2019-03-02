@@ -11,6 +11,14 @@ const app = express();
 
 const jsonParser = bodyparser.json();
 
+// middleware for logging request
+const logger = (req, res, next) => {
+  console.log(`${new Date()} - ${req.method} Request to ${req.path}`);
+  next();
+};
+
+app.use(logger);
+
 app.get('/', (req, res, next) => {
   res.send('Welcome to the EPIC Email..');
 });
