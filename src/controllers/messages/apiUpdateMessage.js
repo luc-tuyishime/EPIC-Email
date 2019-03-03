@@ -3,6 +3,14 @@ import messages from '../../model/messages';
 import { validateMessage } from '../../helpers/validations/message';
 
 export const apiUpdateMessage = (req, res, next) => {
+  const { error } = validateMessage(req.body);
+  if (error) {
+    return res.status(400).send({
+      status: 400,
+      error: error.details[0].message
+    });
+  }
+
   const messageId = req.params.id;
   const messageIndex = messages.findIndex(message => message.id === parseInt(messageId, 10));
   if (messageIndex > -1) {
@@ -20,14 +28,6 @@ export const apiUpdateMessage = (req, res, next) => {
     return res.status(201).send({
       status: 201,
       data: [newMessage]
-    });
-  }
-
-  const { error } = validateMessage(req.body);
-  if (error) {
-    return res.status(400).send({
-      status: 400,
-      error: error.details[0].message
     });
   }
 
