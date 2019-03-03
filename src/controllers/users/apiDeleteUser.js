@@ -1,8 +1,7 @@
 import users from '../../model/users';
 
 export const apiDeleteUser = (req, res, next) => {
-  const userId = req.params.id;
-  const userIndex = users.findIndex(user => user.id === parseInt(userId, 10));
+  const userIndex = users.findIndex(user => user.id === parseInt(req.params.id, 10));
   if (userIndex > -1) {
     users.splice(userIndex);
     return res.status(200).send({
@@ -13,6 +12,6 @@ export const apiDeleteUser = (req, res, next) => {
 
   return res.status(404).send({
     status: 404,
-    message: `The user with the id ${userId} was not found`
+    message: `The user with the id ${req.params.id} was not found`
   });
 };

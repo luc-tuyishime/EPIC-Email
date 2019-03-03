@@ -22,7 +22,7 @@ describe('/Delete a message', () => {
 
   it('should not be able to delete a message', (done) => {
     chai.request(server)
-      .delete('/api/v1/messages/324324')
+      .delete('/api/v1/messages/32')
       .end((err, res) => {
         console.log(res.body);
         res.body.should.be.a('object');
