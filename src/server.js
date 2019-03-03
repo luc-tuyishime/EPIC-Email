@@ -12,7 +12,7 @@ app.get('/', (req, res, next) => {
 });
 
 app.use('/api/v1/messages', messageRouter);
-app.use('/users', userRouter);
+app.use('/api/v1/users', userRouter);
 
 app.use((req, res, next) => {
   const error = new Error('route not found');
