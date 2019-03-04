@@ -21,6 +21,7 @@ export const apiUpdateMessage = (req, res, next) => {
       createdOn: moment().format('LL'),
       subject: req.body.subject || originalMessage.subject,
       message: req.body.message || originalMessage.message,
+      senderId: req.body.senderId || originalMessage.senderId,
       parentMessageId: req.body.parentMessageId || originalMessage.parentMessageId,
       status: req.body.status || originalMessage.status
     };

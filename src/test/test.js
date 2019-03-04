@@ -11,7 +11,7 @@ chai.should();
 describe('/Delete a message', () => {
   it('should be able to delete a message', (done) => {
     chai.request(server)
-      .delete('/api/v1/messages/4')
+      .delete('/api/v1/messages/message/4')
       .end((err, res) => {
         console.log(res.body);
         res.body.should.be.a('object');
@@ -22,7 +22,7 @@ describe('/Delete a message', () => {
 
   it('should not be able to delete a message', (done) => {
     chai.request(server)
-      .delete('/api/v1/messages/32')
+      .delete('/api/v1/messages/message/32')
       .end((err, res) => {
         console.log(res.body);
         res.body.should.be.a('object');
@@ -47,20 +47,10 @@ describe('/get all messages', () => {
 describe('/get all unread messages', () => {
   it('Should be able to get all unread messages..', (done) => {
     chai.request(server)
-      .get('/api/v1/messages/unread').end((err, res) => {
+      .get('/api/v1/messages/unread/messages').end((err, res) => {
         console.log(res.body);
         res.body.should.be.a('object');
         res.body.should.have.property('status').eql(200);
-        done();
-      });
-  });
-
-  it('Should not be able to get all unread messages..', (done) => {
-    chai.request(server)
-      .get('/api/v1/messages/unreadfsfs').end((err, res) => {
-        console.log(res.body);
-        res.body.should.be.a('object');
-        res.body.should.have.property('status').eql(404);
         done();
       });
   });
@@ -70,7 +60,7 @@ describe('/get all unread messages', () => {
 describe('/get a specific message', () => {
   it('Should be able to get a specific message', (done) => {
     chai.request(server)
-      .get('/api/v1/messages/1')
+      .get('/api/v1/messages/message/1')
       .end((err, res) => {
         res.body.should.be.a('object');
         res.body.should.have.property('status').eql(200);
@@ -78,9 +68,9 @@ describe('/get a specific message', () => {
       });
   });
 
-  it('Should not be abe to get a specific message', (done) => {
+  it('Should not be abe to get a specific message....', (done) => {
     chai.request(server)
-      .get('/api/v1/messages/42423')
+      .get('/api/v1/messages/message/42423')
       .end((err, res) => {
         res.body.should.be.a('object');
         res.body.should.have.property('status').eql(404);
@@ -95,6 +85,7 @@ describe('create a message', () => {
     const message = {
       subject: 'dsfdsafjlsf lskdjfsadf',
       message: 'here is the application for playing',
+      senderId: 8,
       status: 'sent'
     };
     chai.request(server)
@@ -135,10 +126,11 @@ describe('update a message', () => {
     const message = {
       subject: 'dsfdsafjlsf lskdjfsadf',
       message: 'here is the application for playing',
+      senderId: 12,
       status: 'sent'
     };
     chai.request(server)
-      .patch('/api/v1/messages/4')
+      .patch('/api/v1/messages/message/4')
       .send(message)
       .end((err, res) => {
         console.log(res.body);
@@ -155,7 +147,7 @@ describe('update a message', () => {
       status: 'sent'
     };
     chai.request(server)
-      .patch('/api/v1/messages/4')
+      .patch('/api/v1/messages/message/4')
       .send(message)
       .end((err, res) => {
         console.log(res.body);
@@ -258,6 +250,46 @@ describe('/Delete a user', () => {
         console.log(res.body);
         res.body.should.be.a('object');
         res.body.should.have.property('status').eql(404);
+        done();
+      });
+  });
+});
+
+
+describe('create a message', () => {
+  it('Should be able to send a message to a user', (done) => {
+    const message = {
+      subject: 'dsfdsafjlsf lskdjfsadf',
+      message: 'here is the application for playing',
+      senderId: 8,
+      status: 'sent'
+    };
+    chai.request(server)
+      .post('/api/v1/messages/2')
+      .send(message)
+      .end((err, res) => {
+        console.log(res.body);
+        res.body.should.be.a('object');
+        res.body.should.have.property('status').eql(201);
+        done();
+      });
+  });
+
+  it('Should be able to send a message to a user', (done) => {
+    const message = {
+      createdOn: 'March 01 2019',
+      subject: '',
+      message: 'here is the application for playing',
+      parentMessageId: 0,
+      status: 'sent'
+    };
+    chai.request(server)
+      .post('/api/v1/messages/4234')
+      .send(message)
+      .end((err, res) => {
+        console.log(res.body);
+        res.body.should.be.a('object');
+        res.body.should.have.property('status').eql(400);
         done();
       });
   });

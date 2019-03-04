@@ -12,10 +12,10 @@ messageRouter.route('/')
   .get(apiGetMessages)
   .post(jsonParser, apiCreateMessage);
 
-messageRouter.route('/unread')
+messageRouter.route('/unread/messages')
   .get(apiGetUnreadMessages);
 
-messageRouter.route('/:id')
+messageRouter.route('/message/:id')
   .get(apiGetMessagesDetail)
   .delete(apiDeleteMessage)
   .patch(jsonParser, apiUpdateMessage);

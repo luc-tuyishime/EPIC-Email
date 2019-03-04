@@ -15,6 +15,7 @@ export const apiCreateMessage = (req, res, next) => {
     createdOn: moment().format('LL'),
     subject: req.body.subject || '',
     message: req.body.message || '',
+    senderId: req.body.senderId || '',
     parentMessageId: req.body.parentMessageId || 0,
     status: req.body.status || ''
   };
