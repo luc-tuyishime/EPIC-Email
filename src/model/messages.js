@@ -37,7 +37,7 @@ const messages = [
     senderId: 2,
     receiverId: 4,
     parentMessageId: 2,
-    status: 'sent'
+    status: 'draft'
   }
 ];
 

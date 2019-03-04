@@ -1,5 +1,5 @@
 import express from 'express';
-import { apiGetMessages, apiGetUnreadMessages } from './apiGetMessages';
+import { apiGetMessages, apiGetUnreadMessages, apiGetInboxMessages } from './apiGetMessages';
 import { apiCreateMessage } from './apiCreatemessage';
 import { apiGetMessagesDetail } from './apiGetMessageDetail';
 import { apiDeleteMessage } from './apiDeleteMessage';
@@ -14,6 +14,9 @@ messageRouter.route('/')
 
 messageRouter.route('/unread/messages')
   .get(apiGetUnreadMessages);
+
+messageRouter.route('/read/messages')
+  .get(apiGetInboxMessages);
 
 messageRouter.route('/message/:id')
   .get(apiGetMessagesDetail)
