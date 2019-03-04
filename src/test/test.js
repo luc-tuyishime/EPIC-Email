@@ -86,6 +86,7 @@ describe('create a message', () => {
       subject: 'dsfdsafjlsf lskdjfsadf',
       message: 'here is the application for playing',
       senderId: 8,
+      receiverId: 8,
       status: 'sent'
     };
     chai.request(server)
@@ -127,6 +128,7 @@ describe('update a message', () => {
       subject: 'dsfdsafjlsf lskdjfsadf',
       message: 'here is the application for playing',
       senderId: 12,
+      receiverId: 8,
       status: 'sent'
     };
     chai.request(server)

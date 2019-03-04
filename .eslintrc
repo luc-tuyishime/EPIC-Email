@@ -21,6 +21,7 @@
         'import/prefer-default-export': 'off',
         'no-unused-vars': ["error", { "vars": "local", "args": "none" }],
          'no-console': 'off',
-         'no-plusplus': 'off'
+         'no-plusplus': 'off',
+         'max-len': 'off'
         }
 }

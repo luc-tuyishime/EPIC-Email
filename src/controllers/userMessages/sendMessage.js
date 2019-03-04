@@ -1,10 +1,10 @@
 import moment from 'moment';
 import contacts from '../../model/contacts';
 import messages from '../../model/messages';
-import { validateMessage } from '../../helpers/validations/message';
+import { validateUserMessage } from '../../helpers/validations/userMessage';
 
 export const sendMessageToContact = (req, res, next) => {
-  const { error } = validateMessage(req.body);
+  const { error } = validateUserMessage(req.body);
   if (error) {
     return res.status(400).send({
       status: 400,
@@ -31,7 +31,6 @@ export const sendMessageToContact = (req, res, next) => {
       error: `The contact with the id ${req.params.contactId} was not found`
     });
   }
-  console.log(req.params.id);
   messages.push(message);
   return res.status(201).send(({
     status: 201,

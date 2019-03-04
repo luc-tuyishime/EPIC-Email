@@ -16,6 +16,7 @@ export const apiCreateMessage = (req, res, next) => {
     subject: req.body.subject || '',
     message: req.body.message || '',
     senderId: req.body.senderId || '',
+    receiverId: req.body.receiverId || '',
     parentMessageId: req.body.parentMessageId || 0,
     status: req.body.status || ''
   };
