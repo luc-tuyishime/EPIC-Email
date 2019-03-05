@@ -30,6 +30,11 @@ export const sendMessageToContact = (req, res, next) => {
       status: 404,
       error: `The contact with the id ${req.params.contactId} was not found`
     });
+  } else if (message.receiverId === message.senderId) {
+    res.status(404).send({
+      status: 404,
+      error: `The senderId ${message.receiverId} and the receiverId ${message.senderId} must not be the same`
+    });
   }
   messages.push(message);
   return res.status(201).send(({
