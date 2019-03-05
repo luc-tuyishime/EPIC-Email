@@ -17,7 +17,7 @@ export const apiCreateMessage = (req, res, next) => {
     message: req.body.message || '',
     senderId: req.body.senderId || '',
     receiverId: req.body.receiverId || '',
-    parentMessageId: req.body.parentMessageId || 0,
+    parentMessageId: parseInt(messages.length + 1, 10) || 0,
     status: req.body.status || ''
   };
   messages.push(newMessage);
