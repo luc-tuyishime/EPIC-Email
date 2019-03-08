@@ -1,4 +1,5 @@
 import express from 'express';
+import path from 'path';
 import { log, logger } from './middleware/logger';
 import userRouter from './controllers/users/route';
 import messageRouter from './controllers/messages/route';
@@ -9,8 +10,11 @@ const app = express();
 
 app.use(logger);
 
+app.set('views', path.join(__dirname, 'views'));
+app.set('view engine', 'pug');
+
 app.get('/', (req, res, next) => {
-  res.send('Welcome to the EPIC Email..');
+  res.render('index', { title: 'EPIC Mail APIs' });
 });
 
 app.use('/api/v1/messages', inboxRouter);

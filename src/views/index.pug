@@ -1,0 +1,23 @@
+extends layout
+
+
+block content
+  h2 #{title}
+  br
+  br
+  strong Get all messages
+  p /api/v1/messages
+  strong Get a a particular message
+  p /api/v1/messages/message/3
+  strong Get unread messages
+  p /api/v1/messages/unread/messages
+  strong Get read messages
+  p /api/v1/messages/read/messages
+  strong Get all contact
+  p /api/v1/contacts/
+  strong a specific contact
+  p /api/v1/contacts/3
+  strong Get a message for a s specific user
+  p /api/v1/messages/3
+  strong Get unread message for a  specific user
+  p /api/v1/messages/4/unread

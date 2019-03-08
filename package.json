@@ -31,6 +31,7 @@
     "joi": "^14.3.1",
     "moment": "^2.24.0",
     "nyc": "^13.3.0",
+    "pug": "^2.0.3",
     "swagger": "^0.7.5",
     "swagger-jsdoc": "^3.2.7",
     "swagger-ui-express": "^4.0.2",
