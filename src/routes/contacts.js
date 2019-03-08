@@ -1,10 +1,10 @@
 import express from 'express';
 
-import { createContacts } from './apiCreateContacts';
+import { createContacts } from '../controllers/contacts/apiCreateContacts';
 
-import { getSpecificContacts, apiGetAllContacts } from './apiGetContacts';
+import { getSpecificContacts, apiGetAllContacts } from '../controllers/contacts/apiGetContacts';
 
-import { jsonParser } from '../bodyParser';
+import { jsonParser } from '../controllers/bodyParser';
 
 const contactRouter = express.Router();
 

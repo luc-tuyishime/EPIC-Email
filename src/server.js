@@ -1,10 +1,10 @@
 import express from 'express';
 import path from 'path';
 import { log, logger } from './middleware/logger';
-import userRouter from './controllers/users/route';
-import messageRouter from './controllers/messages/route';
-import inboxRouter from './controllers/userMessages/route';
-import contactRouter from './controllers/contacts/route';
+import userRouter from './routes/users';
+import messageRouter from './routes/messages';
+import inboxRouter from './routes/userMessages';
+import contactRouter from './routes/contacts';
 
 const app = express();
 
