@@ -7,7 +7,7 @@ export const apiDeleteMessage = (req, res, next) => {
     messages.splice(messageIndex);
     return res.status(200).send({
       status: 200,
-      data: [{ message: 'Message removed' }]
+      data: [{ message: 'Message removed...' }]
     });
   }
 
