@@ -3,13 +3,14 @@
   <head>
     <meta charset="utf-8">
     <title>EPIC Email</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="css/style.css">
   </head>
   <body>
     <header class="topbar">
         <div class="navbar">
-           <a href="#home">EPIC Email</a>
+           <a class="title" href="#home">EPIC Email</a>
            <div class="link-right-position">
               <a href="home.html">Inbox</a>
               <a href="sent.html">Sent</a>
@@ -38,7 +39,7 @@
      <main>
      <h1 class="header-one">Drafts</h1>
      <div class="container2">
-       <div class="email">
+       <div id="grid-div" class="email">
          <div class="icon">
            <img src="img/email.png" class="email-img-resize" alt="image" />
          </div>
@@ -50,7 +51,7 @@
            <button class="delete-mail">Delete</button>
          </div>
        </div>
-       <div class="email">
+       <div id="grid-div" class="email">
          <div class="icon">
            <img src="img/email.png" class="email-img-resize" alt="image" />
          </div>
@@ -62,7 +63,7 @@
            <button class="delete-mail">Delete</button>
          </div>
        </div>
-       <div class="email">
+       <div id="grid-div" class="email">
          <div class="icon">
            <img src="img/email.png" class="email-img-resize" alt="image" />
          </div>
@@ -74,7 +75,19 @@
            <button class="delete-mail">Delete</button>
          </div>
        </div>
-       <div class="email">
+       <div id="grid-div" class="email">
+         <div class="icon">
+           <img src="img/email.png" class="email-img-resize" alt="image" />
+         </div>
+         <div class="content">
+           <p class="draft-text">Draft</p>
+           <h4>No subject</h4>
+           <p class="text-ellipsis">hello, Congratulation on making this so far, hello Congratulation on making this so far</p>
+           <a href="open-draft.html"><button class="view-mail">Open</button></a>
+           <button class="delete-mail">Delete</button>
+         </div>
+       </div>
+       <div id="grid-div" class="email">
          <div class="icon">
            <img src="img/email.png" class="email-img-resize" alt="image" />
          </div>
@@ -102,7 +115,7 @@
       </div>
      </main>
      <br>
-     <div class="footer2">
+     <div class="footer">
        <p>EPIC Email &copy; 2019</p>
      </div>
      <script src="js/script.js"></script>
