@@ -3,9 +3,11 @@
    <head>
       <meta charset="utf-8">
       <title>EPIC Email</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
       <link rel="stylesheet" href="css/style.css">
    </head>
-   <body>
+   <body class="background">
+     <div>
       <h2 class="title">EPIC Email</h2>
       <div class="container">
        <p class="text-p">REGISTER</p>
@@ -20,8 +22,9 @@
                <input type="password" placeholder="Password" value="">
             </div>
          </form>
-          <a href="home.html"><button class="btn" type="submit" name="">REGISTER</button></a>
-         <a class="b1" href="index.html">SIGN IN ?</a>
+        <button onclick="location.href='home.html'" class="btn" type="submit" name="">REGISTER</button>
+         <a class="b1" id="on-small-screen" href="index.html">SIGN IN ?</a>
       </div>
+    </div>
    </body>
 </html>
