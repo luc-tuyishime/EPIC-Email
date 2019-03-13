@@ -1,28 +1,28 @@
 import express from 'express';
-import { GetMessages, GetUnreadMessages, GetReadMessages } from '../controllers/messages/GetMessages';
-import { CreateMessage } from '../controllers/messages/Createmessage';
-import { GetMessagesDetail } from '../controllers/messages/GetMessageDetail';
-import { DeleteMessage } from '../controllers/messages/DeleteMessage';
-import { UpdateMessage } from '../controllers/messages/UpdateMessage';
+import { getMessages, getUnreadMessages, getReadMessages } from '../controllers/messages/GetMessages';
+import { createMessage } from '../controllers/messages/Createmessage';
+import { getMessagesDetail } from '../controllers/messages/GetMessageDetail';
+import { deleteMessage } from '../controllers/messages/DeleteMessage';
+import { updateMessage } from '../controllers/messages/UpdateMessage';
 import Message from '../helpers/validations/message';
 import { jsonParser } from '../middleware/bodyParser';
 
 const messageRouter = express.Router();
 
 messageRouter.route('/')
-  .get(GetMessages)
-  .post(jsonParser, Message.validateCreate, CreateMessage);
+  .get(getMessages)
+  .post(jsonParser, Message.validateCreate, createMessage);
 
 messageRouter.route('/unread/messages')
-  .get(GetUnreadMessages);
+  .get(getUnreadMessages);
 
 messageRouter.route('/read/messages')
-  .get(GetReadMessages);
+  .get(getReadMessages);
 
 messageRouter.route('/message/:id')
-  .get(GetMessagesDetail)
-  .delete(DeleteMessage)
-  .patch(jsonParser, Message.validateUpdate, UpdateMessage);
+  .get(getMessagesDetail)
+  .delete(deleteMessage)
+  .patch(jsonParser, Message.validateUpdate, updateMessage);
 
 
 export default messageRouter;

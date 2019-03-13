@@ -1,7 +1,7 @@
 import moment from 'moment';
 import messages from '../../model/messages';
 
-export const CreateMessage = (req, res) => {
+export const createMessage = (req, res) => {
   const newMessage = {
     id: parseInt(messages.length + 1, 10),
     createdOn: moment().format('LL'),

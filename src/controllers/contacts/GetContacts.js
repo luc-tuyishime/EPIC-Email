@@ -1,7 +1,7 @@
 import contacts from '../../model/contacts';
 
 
-export const GetAllContacts = (req, res) => {
+export const getAllContacts = (req, res) => {
   res.send({
     status: 200,
     data: [contacts]

@@ -1,14 +1,14 @@
 import express from 'express';
 
-import { GetUsers } from '../controllers/users/GetUsers';
+import { getUsers } from '../controllers/users/GetUsers';
 
-import { GetUserDetail } from '../controllers/users/GetUserDetail';
+import { getUserDetail } from '../controllers/users/GetUserDetail';
 
-import { AddUser } from '../controllers/users/AddUser';
+import { addUser } from '../controllers/users/AddUser';
 
-import { DeleteUser } from '../controllers/users/DeleteUser';
+import { deleteUser } from '../controllers/users/DeleteUser';
 
-import { UpdateUser } from '../controllers/users/UpdateUser';
+import { updateUser } from '../controllers/users/UpdateUser';
 
 import { jsonParser } from '../middleware/bodyParser';
 
@@ -17,13 +17,13 @@ import User from '../helpers/validations/user';
 const userRouter = express.Router();
 
 userRouter.route('/')
-  .post(jsonParser, User.validate, AddUser)
-  .get(GetUsers);
+  .post(jsonParser, User.validate, addUser)
+  .get(getUsers);
 
 userRouter.route('/:id')
-  .get(GetUserDetail)
-  .delete(DeleteUser)
-  .patch(jsonParser, User.validate, UpdateUser);
+  .get(getUserDetail)
+  .delete(deleteUser)
+  .patch(jsonParser, User.validate, updateUser);
 
 
 export default userRouter;

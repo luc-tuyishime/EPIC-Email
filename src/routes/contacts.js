@@ -2,7 +2,7 @@ import express from 'express';
 
 import { createContacts } from '../controllers/contacts/CreateContacts';
 
-import { getSpecificContacts, GetAllContacts } from '../controllers/contacts/GetContacts';
+import { getSpecificContacts, getAllContacts } from '../controllers/contacts/GetContacts';
 
 import { jsonParser } from '../middleware/bodyParser';
 
@@ -14,7 +14,7 @@ contactRouter.route('/:id')
   .get(getSpecificContacts);
 
 contactRouter.route('/')
-  .get(GetAllContacts)
+  .get(getAllContacts)
   .post(jsonParser, Contact.validate, createContacts);
 
 export default contactRouter;

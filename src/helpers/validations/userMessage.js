@@ -2,7 +2,6 @@ import Joi from 'joi';
 
 const Message = {
   async validate(req, res) {
-    console.log(req.body);
     const schema = Joi.object().keys({
       subject: Joi.string().trim().min(3),
       message: Joi.string().trim().min(6),

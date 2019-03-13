@@ -1,15 +1,6 @@
 import users from '../../model/users';
-import { validateUser } from '../../helpers/validations/user';
 
-export const UpdateUser = (req, res) => {
-  const { error } = validateUser(req.body);
-  if (error) {
-    return res.status(400).send({
-      status: 400,
-      error: error.details[0].message
-    });
-  }
-
+export const updateUser = (req, res) => {
   const userId = req.params.id;
   const userIndex = users.findIndex(user => user.id === parseInt(userId, 10));
   if (userIndex > -1) {

@@ -1,6 +1,6 @@
 import users from '../../model/users';
 
-export const DeleteUser = (req, res) => {
+export const deleteUser = (req, res) => {
   const userIndex = users.findIndex(user => user.id === parseInt(req.params.id, 10));
   if (userIndex > -1) {
     users.splice(userIndex);

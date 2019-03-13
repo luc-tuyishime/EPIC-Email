@@ -1,7 +1,7 @@
 import moment from 'moment';
 import messages from '../../model/messages';
 
-export const UpdateMessage = (req, res, next) => {
+export const updateMessage = (req, res, next) => {
   const messageId = req.params.id;
   const messageIndex = messages.findIndex(message => message.id === parseInt(messageId, 10));
   if (messageIndex > -1) {

@@ -2,7 +2,6 @@ import Joi from 'joi';
 
 const Contact = {
   async validate(req, res) {
-    console.log(req.body);
     const schema = Joi.object().keys({
       email: Joi.string().email({ minDomainAtoms: 2 }),
       firstname: Joi.string().alphanum().min(3).max(30)
