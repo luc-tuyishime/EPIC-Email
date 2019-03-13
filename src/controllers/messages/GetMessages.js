@@ -1,13 +1,13 @@
 import messages from '../../model/messages';
 
-export const apiGetMessages = (req, res, next) => {
+export const GetMessages = (req, res) => {
   res.send({
     status: 200,
     data: [messages]
   });
 };
 
-export const apiGetUnreadMessages = (req, res, next) => {
+export const GetUnreadMessages = (req, res) => {
   const unread = messages.filter(message => message.status === 'sent');
   if (unread) {
     return res.status(200).send({
@@ -21,7 +21,7 @@ export const apiGetUnreadMessages = (req, res, next) => {
   });
 };
 
-export const apiGetInboxMessages = (req, res, next) => {
+export const GetReadMessages = (req, res) => {
   const read = messages.filter(message => message.status === 'read');
   if (read) {
     return res.status(200).send({

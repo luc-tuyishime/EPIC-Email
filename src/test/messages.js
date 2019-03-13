@@ -87,7 +87,7 @@ describe('create a message', () => {
       message: 'here is the application for playing',
       senderId: 8,
       receiverId: 8,
-      status: 'sent'
+      status: 'draft'
     };
     chai.request(server)
       .post('/api/v1/messages')
@@ -137,7 +137,7 @@ describe('update a message', () => {
       .end((err, res) => {
         console.log(res.body);
         res.body.should.be.a('object');
-        res.body.should.have.property('status').eql(201);
+        res.body.should.have.property('status').eql(200);
         done();
       });
   });

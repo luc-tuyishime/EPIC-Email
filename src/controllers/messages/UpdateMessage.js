@@ -1,16 +1,7 @@
 import moment from 'moment';
 import messages from '../../model/messages';
-import { validateMessage } from '../../helpers/validations/message';
 
-export const apiUpdateMessage = (req, res, next) => {
-  const { error } = validateMessage(req.body);
-  if (error) {
-    return res.status(400).send({
-      status: 400,
-      error: error.details[0].message
-    });
-  }
-
+export const UpdateMessage = (req, res, next) => {
   const messageId = req.params.id;
   const messageIndex = messages.findIndex(message => message.id === parseInt(messageId, 10));
   if (messageIndex > -1) {
@@ -26,8 +17,8 @@ export const apiUpdateMessage = (req, res, next) => {
       status: req.body.status || originalMessage.status
     };
     messages[messageIndex] = newMessage;
-    return res.status(201).send({
-      status: 201,
+    return res.status(200).send({
+      status: 200,
       data: [newMessage]
     });
   }

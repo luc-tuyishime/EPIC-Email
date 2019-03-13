@@ -1,17 +1,8 @@
 import moment from 'moment';
 import contacts from '../../model/contacts';
 import messages from '../../model/messages';
-import { validateUserMessage } from '../../helpers/validations/userMessage';
 
-export const sendMessageToContact = (req, res, next) => {
-  const { error } = validateUserMessage(req.body);
-  if (error) {
-    return res.status(400).send({
-      status: 400,
-      error: error.details[0].message
-    });
-  }
-
+export const sendMessageToContact = (req, res) => {
   const message = {
     id: parseInt(messages.length + 1, 10),
     receiverId: parseInt(req.params.contactId, 10) || '',

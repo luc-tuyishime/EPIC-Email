@@ -2,7 +2,7 @@ import moment from 'moment';
 import contacts from '../../model/contacts';
 import { validateContact } from '../../helpers/validations/contact';
 
-export const createContacts = (req, res, next) => {
+export const createContacts = (req, res) => {
   const { error } = validateContact(req.body);
   if (error) {
     return res.status(400).send({

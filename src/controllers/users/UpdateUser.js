@@ -1,7 +1,7 @@
 import users from '../../model/users';
 import { validateUser } from '../../helpers/validations/user';
 
-export const apiUpdateUser = (req, res, next) => {
+export const UpdateUser = (req, res) => {
   const { error } = validateUser(req.body);
   if (error) {
     return res.status(400).send({
@@ -23,8 +23,8 @@ export const apiUpdateUser = (req, res, next) => {
       password: req.body.password || originalUser.password
     };
     users[userIndex] = newUser;
-    return res.status(201).send({
-      status: 201,
+    return res.status(200).send({
+      status: 200,
       data: [newUser]
     });
   }

@@ -1,7 +1,7 @@
 import users from '../../model/users';
 import { validateUser } from '../../helpers/validations/user';
 
-export const apiAddUser = (req, res, next) => {
+export const AddUser = (req, res) => {
   const { error } = validateUser(req.body);
   if (error) {
     return res.status(400).send({

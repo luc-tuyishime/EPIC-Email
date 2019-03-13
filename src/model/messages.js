@@ -27,7 +27,7 @@ const messages = [
     senderId: 2,
     receiverId: 4,
     parentMessageId: 2,
-    status: 'sent'
+    Status: 'sent'
   },
   {
     id: 4,
