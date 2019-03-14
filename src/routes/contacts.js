@@ -10,11 +10,11 @@ import Contact from '../helpers/validations/contact';
 
 const contactRouter = express.Router();
 
-contactRouter.route('/:id')
-  .get(getSpecificContacts);
-
 contactRouter.route('/')
   .get(getAllContacts)
   .post(jsonParser, Contact.validate, createContacts);
+  
+contactRouter.route('/:id')
+  .get(getSpecificContacts);
 
 export default contactRouter;

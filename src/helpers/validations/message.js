@@ -1,7 +1,7 @@
 import Joi from 'joi';
 
 const Message = {
-  async validateCreate(req, res) {
+  async validateCreate(req, res, next) {
     const schema = Joi.object().keys({
       subject: Joi.string().trim().min(3),
       message: Joi.string().trim().min(6),
@@ -17,14 +17,10 @@ const Message = {
         error: error.details[0].message
       });
     }
-    return res.status(201).send({
-      status: 201,
-      data: value
-    });
+    next();
   },
 
-  async validateUpdate(req, res) {
-    console.log(req.body);
+  async validateUpdate(req, res, next) {
     const schema = Joi.object().keys({
       subject: Joi.string().trim().min(3),
       message: Joi.string().trim().min(6),
@@ -40,10 +36,7 @@ const Message = {
         error: error.details[0].message
       });
     }
-    return res.status(200).send({
-      status: 200,
-      data: value
-    });
+    next();
   },
 };
 

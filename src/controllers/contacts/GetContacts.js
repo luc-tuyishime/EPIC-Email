@@ -18,6 +18,6 @@ export const getSpecificContacts = (req, res) => {
   }
   return res.status(404).send({
     status: 404,
-    error: `The message with the id ${req.params.id} was not found`
+    error: `The contact with the id ${req.params.id} was not found`
   });
 };

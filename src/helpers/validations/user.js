@@ -1,7 +1,7 @@
 import Joi from 'joi';
 
 const User = {
-  async validate(req, res) {
+  async validate(req, res, next) {
     const schema = Joi.object().keys({
       email: Joi.string().email({ minDomainAtoms: 2 }),
       firstname: Joi.string().alphanum().min(3).max(30)
@@ -18,10 +18,7 @@ const User = {
         error: error.details[0].message
       });
     }
-    return res.status(201).send({
-      status: 201,
-      data: value
-    });
+    next();
   },
 };
 

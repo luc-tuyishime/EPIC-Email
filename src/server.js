@@ -1,8 +1,11 @@
 import express from 'express';
 import path from 'path';
 import morgan from 'morgan';
+import swaggerUi from 'swagger-ui-express';
 import { log, logger } from './middleware/logger';
 import Router from './routes/index';
+import swaggerDocument from '../swagger.json';
+import Message from './helpers/validations/message';
 
 
 const app = express();
@@ -21,6 +24,8 @@ app.get('/', (req, res, next) => {
   res.render('index', { title: 'EPIC Mail APIs' });
 });
 
+
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 app.use('/api/v1', Router);
 
 app.use((req, res, next) => {
