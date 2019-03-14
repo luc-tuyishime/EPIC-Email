@@ -1,27 +1,31 @@
 import express from 'express';
 
-import { apiGetUsers } from '../controllers/users/apiGetUsers';
+import { getUsers } from '../controllers/users/getUsers';
 
-import { apiGetUserDetail } from '../controllers/users/apiGetUserDetail';
+import { getUserDetail } from '../controllers/users/getUserDetail';
 
-import { apiAddUser } from '../controllers/users/apiAddUser';
+import { addUser } from '../controllers/users/addUser';
 
-import { apiDeleteUser } from '../controllers/users/apiDeleteUser';
+import { deleteUser } from '../controllers/users/deleteUser';
 
-import { apiUpdateUser } from '../controllers/users/apiUpdateUser';
+import { updateUser } from '../controllers/users/updateUser';
 
-import { jsonParser } from '../controllers/bodyParser';
+import { jsonParser } from '../middleware/bodyParser';
+
+import User from '../helpers/validations/user';
+
+const { validate } = User;
 
 const userRouter = express.Router();
 
 userRouter.route('/')
-  .post(jsonParser, apiAddUser)
-  .get(apiGetUsers);
+  .post(jsonParser, validate, addUser)
+  .get(getUsers);
 
 userRouter.route('/:id')
-  .get(apiGetUserDetail)
-  .delete(apiDeleteUser)
-  .patch(jsonParser, apiUpdateUser);
+  .get(getUserDetail)
+  .delete(deleteUser)
+  .patch(jsonParser, validate, updateUser);
 
 
 export default userRouter;

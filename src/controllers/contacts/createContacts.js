@@ -1,15 +1,7 @@
 import moment from 'moment';
 import contacts from '../../model/contacts';
-import { validateContact } from '../../helpers/validations/contact';
 
-export const createContacts = (req, res, next) => {
-  const { error } = validateContact(req.body);
-  if (error) {
-    return res.status(400).send({
-      status: 400,
-      error: error.details[0].message
-    });
-  }
+export const createContacts = (req, res) => {
   const contact = {
     id: parseInt(contacts.length + 1, 10),
     createdOn: moment().format('LL'),

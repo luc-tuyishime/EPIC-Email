@@ -1,6 +1,6 @@
 import users from '../../model/users';
 
-export const apiGetUsers = (req, res, next) => {
+export const getUsers = (req, res) => {
   res.send({
     status: 200,
     data: [users]

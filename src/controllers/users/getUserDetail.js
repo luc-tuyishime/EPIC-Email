@@ -1,6 +1,6 @@
 import users from '../../model/users';
 
-export const apiGetUserDetail = (req, res, next) => {
+export const getUserDetail = (req, res) => {
   const selectedUser = users.find(user => user.id === parseInt(req.params.id, 10));
   if (selectedUser) {
     return res.status(200).send({

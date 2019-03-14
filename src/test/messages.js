@@ -87,7 +87,7 @@ describe('create a message', () => {
       message: 'here is the application for playing',
       senderId: 8,
       receiverId: 8,
-      status: 'sent'
+      status: 'draft'
     };
     chai.request(server)
       .post('/api/v1/messages')
@@ -137,7 +137,7 @@ describe('update a message', () => {
       .end((err, res) => {
         console.log(res.body);
         res.body.should.be.a('object');
-        res.body.should.have.property('status').eql(201);
+        res.body.should.have.property('status').eql(200);
         done();
       });
   });
@@ -150,6 +150,46 @@ describe('update a message', () => {
     };
     chai.request(server)
       .patch('/api/v1/messages/message/4')
+      .send(message)
+      .end((err, res) => {
+        console.log(res.body);
+        res.body.should.be.a('object');
+        res.body.should.have.property('status').eql(400);
+        done();
+      });
+  });
+});
+
+describe('create a message to user', () => {
+  it('Should be able to send a message to a user', (done) => {
+    const message = {
+      subject: 'dsfdsafjlsf lskdjfsadf',
+      message: 'here is the application for playing',
+      senderId: 1,
+      receiverId: 3,
+      status: 'sent'
+    };
+    chai.request(server)
+      .post('/api/v1/messages/2')
+      .send(message)
+      .end((err, res) => {
+        console.log(res.body);
+        res.body.should.be.a('object');
+        res.body.should.have.property('status').eql(201);
+        done();
+      });
+  });
+
+  it('Should not be able to send a message to a user', (done) => {
+    const message = {
+      subject: 'dsfdsafjlsf lskdjfsadf',
+      message: '',
+      senderId: 2,
+      receiverId: 3,
+      status: 'sent'
+    };
+    chai.request(server)
+      .post('/api/v1/messages/4234')
       .send(message)
       .end((err, res) => {
         console.log(res.body);
