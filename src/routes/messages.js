@@ -9,18 +9,20 @@ import { sendMessageToContact } from '../controllers/messages/sendMessage';
 import Message from '../helpers/validations/message';
 import { jsonParser } from '../middleware/bodyParser';
 
+const { validate, validateUpdate } = Message;
+
 const messageRouter = express.Router();
 
 messageRouter.route('/')
   .get(getMessages)
-  .post(jsonParser, Message.validateCreate, createMessage);
+  .post(jsonParser, validate, createMessage);
 
 messageRouter.route('/:contactId/unread')
   .get(getUnreadMessages);
 
 messageRouter.route('/:contactId')
   .get(getMessages)
-  .post(jsonParser, Message.validateCreate, sendMessageToContact);
+  .post(jsonParser, validate, sendMessageToContact);
 
 messageRouter.route('/unread/messages')
   .get(getUnreadMessages);
@@ -34,7 +36,7 @@ messageRouter.route('/:id/messages')
 messageRouter.route('/message/:id')
   .get(getMessagesDetail)
   .delete(deleteMessage)
-  .patch(jsonParser, Message.validateUpdate, updateMessage);
+  .patch(jsonParser, validateUpdate, updateMessage);
 
 
 export default messageRouter;

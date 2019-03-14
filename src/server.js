@@ -44,6 +44,6 @@ app.use((error, req, res, next) => {
 
 log();
 
-app.listen(process.env.PORT || 3000, () => console.log('Server started...'));
+app.listen(process.env.PORT || 4000, () => console.log('Server started...'));
 
 export default app;

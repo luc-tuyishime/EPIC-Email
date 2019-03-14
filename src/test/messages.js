@@ -159,3 +159,43 @@ describe('update a message', () => {
       });
   });
 });
+
+describe('create a message to user', () => {
+  it('Should be able to send a message to a user', (done) => {
+    const message = {
+      subject: 'dsfdsafjlsf lskdjfsadf',
+      message: 'here is the application for playing',
+      senderId: 1,
+      receiverId: 3,
+      status: 'sent'
+    };
+    chai.request(server)
+      .post('/api/v1/messages/2')
+      .send(message)
+      .end((err, res) => {
+        console.log(res.body);
+        res.body.should.be.a('object');
+        res.body.should.have.property('status').eql(201);
+        done();
+      });
+  });
+
+  it('Should not be able to send a message to a user', (done) => {
+    const message = {
+      subject: 'dsfdsafjlsf lskdjfsadf',
+      message: '',
+      senderId: 2,
+      receiverId: 3,
+      status: 'sent'
+    };
+    chai.request(server)
+      .post('/api/v1/messages/4234')
+      .send(message)
+      .end((err, res) => {
+        console.log(res.body);
+        res.body.should.be.a('object');
+        res.body.should.have.property('status').eql(400);
+        done();
+      });
+  });
+});
