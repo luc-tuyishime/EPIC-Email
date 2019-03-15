@@ -1,5 +1,4 @@
 import moment from 'moment';
-import messages from '../../model/messages';
 
 export const updateMessage = (req, res, next) => {
   const messageId = req.params.id;
