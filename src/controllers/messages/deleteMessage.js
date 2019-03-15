@@ -1,5 +1,3 @@
-import messages from '../../model/messages';
-
 export const deleteMessage = (req, res) => {
   const messageIndex = messages.findIndex(message => message.id === parseInt(req.params.id, 10));
   if (messageIndex > -1) {

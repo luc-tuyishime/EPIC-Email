@@ -1,5 +1,4 @@
 import moment from 'moment';
-import messages from '../../model/messages';
 
 export const createMessage = (req, res) => {
   const newMessage = {

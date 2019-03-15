@@ -1,5 +1,3 @@
-import messages from '../../model/messages';
-
 export const getMessagesDetail = (req, res) => {
   const selectedMessage = messages.find(message => message.id === parseInt(req.params.id, 10));
   if (selectedMessage) {
