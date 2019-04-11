@@ -1,0 +1,373 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "EPIC Email",
+    "description": "A web app that helps people exchange messages / information over the internet",
+    "license": {
+      "name": "MIT",
+      "url": "https://opensource.org/licenses/MIT"
+    }
+  },
+  "host": "localhost:3000",
+  "basePath": "/api/v1",
+  "tags": [
+    {
+      "name": "Messages",
+      "description": "API for messages in the system"
+    },
+    {
+      "name": "Contacts",
+      "description": "API for contacts in the system"
+    },
+    {
+      "name": "Users",
+      "description": "API for users in the system"
+    }
+  ],
+  "schemes": [
+    "http"
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/messages": {
+      "post": {
+        "tags": [
+          "Messages"
+        ],
+        "description": "Create a new message",
+        "parameters": [
+          {
+            "name": "message",
+            "in": "body",
+            "description": "message that we want to create",
+            "schema": {
+            }
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "New message is created",
+            "schema": {
+            }
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "Messages"
+        ],
+        "summary": "Get all messages in system",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+            }
+          }
+        }
+      }
+    },
+
+    "/messages/message/{messageId}": {
+      "parameters": [
+        {
+          "name": "messageId",
+          "in": "path",
+          "required": true,
+          "description": "ID of message that we want to find",
+          "type": "string"
+        }
+      ],
+      "get": {
+        "tags": [
+          "Messages"
+        ],
+        "summary": "Get message with given ID",
+        "responses": {
+          "200": {
+            "description": "Message is found",
+            "schema": {
+            }
+          }
+        }
+      },
+      "delete": {
+        "summary": "Delete message with given ID",
+        "tags": [
+          "Messages"
+        ],
+        "responses": {
+          "200": {
+            "description": "Message is deleted",
+            "schema": {
+            }
+          }
+        }
+      },
+      "patch": {
+        "summary": "Update message with give ID",
+        "tags": [
+          "Messages"
+        ],
+        "parameters": [
+          {
+            "name": "message",
+            "in": "body",
+            "description": "Message with new values of properties",
+            "schema": {
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Message is updated",
+            "schema": {
+            }
+          }
+        }
+      }
+    },
+
+    "/messages/unread/messages": {
+      "get": {
+        "tags": [
+          "Messages"
+        ],
+        "summary": "Get all unread messages in system",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+            }
+          }
+        }
+      }
+    },
+
+    "/contacts": {
+      "post": {
+        "tags": [
+          "Contacts"
+        ],
+        "description": "Create a new contact",
+        "parameters": [
+          {
+            "name": "contacts",
+            "in": "body",
+            "description": "contact that we want to create",
+            "schema": {
+            }
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "New contact is created",
+            "schema": {
+            }
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "Contacts"
+        ],
+        "summary": "Get all contacts in system",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+            }
+          }
+        }
+      }
+    },
+
+    "/contacts/{contactId}": {
+      "parameters": [
+        {
+          "name": "contactId",
+          "in": "path",
+          "required": true,
+          "description": "ID of contact that we want to find",
+          "type": "string"
+        }
+      ],
+      "get": {
+        "tags": [
+          "Contacts"
+        ],
+        "summary": "Get contact with given ID",
+        "responses": {
+          "200": {
+            "description": "Contact is found",
+            "schema": {
+            }
+          }
+        }
+      }
+    },
+
+    "/users": {
+      "post": {
+        "tags": [
+          "Users"
+        ],
+        "description": "Create a new user",
+        "parameters": [
+          {
+            "name": "users",
+            "in": "body",
+            "description": "user that we want to create",
+            "schema": {
+            }
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "New user is created",
+            "schema": {
+            }
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "Users"
+        ],
+        "summary": "Get all users in system",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+            }
+          }
+        }
+      }
+    },
+
+    "/users/{userId}": {
+      "parameters": [
+        {
+          "name": "userId",
+          "in": "path",
+          "required": true,
+          "description": "ID of user that we want to find",
+          "type": "string"
+        }
+      ],
+      "get": {
+        "tags": [
+          "Users"
+        ],
+        "summary": "Get user with given ID",
+        "responses": {
+          "200": {
+            "description": "User is found",
+            "schema": {
+            }
+          }
+        }
+      },
+      "delete": {
+        "summary": "Delete user with given ID",
+        "tags": [
+          "Users"
+        ],
+        "responses": {
+          "200": {
+            "description": "User is deleted",
+            "schema": {
+            }
+          }
+        }
+      }
+    }
+  },
+
+
+  "definitions": {
+    "Message": {
+      "required": [
+        "subject",
+        "message",
+        "status",
+        "senderId",
+        "receiverId"
+      ],
+      "properties": {
+        "subject": {
+          "type": "string"
+        },
+        "message": {
+          "type": "string"
+        },
+        "status": {
+          "type": "string",
+          "toBe": "sent, draft or read"
+        },
+        "senderId": {
+          "type": "integer"
+        },
+        "receiverId": {
+          "type": "integer"
+        }
+      }
+    },
+    "Contact": {
+      "required": [
+        "email",
+        "firstname",
+        "lastname"
+      ],
+      "properties": {
+        "email": {
+          "type": "string",
+          "uniqueItems": true
+        },
+        "firstname": {
+          "type": "string"
+        },
+        "lastname": {
+          "type": "string"
+        }
+      }
+    },
+    "User": {
+      "required": [
+        "email",
+        "firstname",
+        "lastname",
+        "password"
+      ],
+      "properties": {
+        "email": {
+          "type": "string",
+          "uniqueItems": true
+        },
+        "firstname": {
+          "type": "string"
+        },
+        "lastname": {
+          "type": "string"
+        },
+        "password": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}
