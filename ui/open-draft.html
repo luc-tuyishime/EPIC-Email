@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>EPIC Email</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/style.css">
+  </head>
+  <body>
+    <header class="topbar">
+        <div class="navbar">
+           <a class="title" href="home.html">EPIC Email</a>
+           <div class="link-right-position">
+              <a href="home.html">Inbox</a>
+              <a href="sent.html">Sent</a>
+              <a href="drafts.html">Drafts</a>
+              <div class="dropdown">
+                 <button class="dropbtn">Group
+                 <i class="fa fa-caret-down"></i>
+                 </button>
+                 <div class="dropdown-content">
+                   <a id="myBtn">Create Group</a>
+                   <a href="view-groups.html">View Groups</a>
+                 </div>
+              </div>
+              <div class="dropdown">
+                 <button class="dropbtn">Jean luc
+                 <i class="fa fa-caret-down"></i>
+                 </button>
+                 <div class="dropdown-content">
+                   <a href="profile.html">Profile</a>
+                   <a href="index.html">Logout</a>
+                 </div>
+              </div>
+           </div>
+        </div>
+     </header>
+     <div id="myModal" class="modal">
+       <!-- Modal content -->
+        <div class="modal-content">
+          <span class="close">&times;</span>
+          <div class="form_ask_question">
+            <form class="register-form">
+              <input type="text" placeholder="Name" />
+              <input type="text" placeholder="Add members" />
+              <button>Create Group</button>
+            </form>
+          </div>
+        </div>
+      </div>
+     <main class="style-form">
+     <form action="" class="form-draft">
+        <div class="input-container">
+          <input class="input-field" id="my-field" type="text" placeholder="Email or Group name" name="usrnm">
+        </div>
+        <div class="input-container">
+          <input class="input-field" id="my-field" type="text" placeholder="Subject" name="email">
+        </div>
+        <div class="input-container">
+        <textarea name="hello, Congratulation on making this so far, hello Congratulation on making this so far, hello, Congratulation on making this so far, hello Congratulation on making this so far" class="input-field text-area-left-text" placeholder="Message" rows="20" cols="37">hello, Congratulation on making this so far, hello Congratulation on making this so far, hello, Congratulation on making this so far, hello Congratulation on making this so far,hello Congratulation on making this so far, hello Congratulation on making this so far, hello Congratulation on making this so far, thanks</textarea>
+        </div>
+        <button type="submit" class="btn-new">SEND</button>
+        <button type="submit" class="btn-new">SAVE</button>
+      </form>
+     </main>
+     <br>
+     <!-- <footer class="footer">
+     <p>EPIC Email &copy; 2019</p>
+     </footer> -->
+    <script src="js/script.js"></script>
+  </body>
+</html>
